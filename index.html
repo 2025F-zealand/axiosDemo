@@ -6,6 +6,7 @@
     <!-- Import Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
@@ -15,6 +16,14 @@
 
       <h1>{{ intro }}</h1>
       
+      <button class="btn btn-primary" v-on:click="getAllPosts">Get All</button>
+
+      <ul v-if="postslist.length > 0">
+        <li v-for="post in postslist" v-bind:key="post.id">
+            UserId {{post.userId}}  : {{post.title}} 
+        </li>
+    </ul> 
+
     </div>
 
     <!-- Import App -->
